@@ -1,4 +1,5 @@
 import Player from '@vimeo/player';
+import LSService from './locale-storage'
 const throttle = require('lodash.throttle');
 
 const iframeEl = document.querySelector('#vimeo-player');
@@ -12,7 +13,7 @@ const onPlay = function(data) {
 
 player.on('timeupdate', throttle(onPlay, 1000));
 
-player.setCurrentTime(localStorage.getItem('videoplayer-current-time')).then(function(seconds) {
+player.setCurrentTime(LSService.load('videoplayer-current-time')).then(function(seconds) {
 
 }).catch(function(error) {
     switch (error.name) {

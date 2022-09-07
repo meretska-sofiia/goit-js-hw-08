@@ -9,10 +9,8 @@ const fillContactFormFields = () => {
 
   for (const prop in contactFormDataFromLS) {
     if (contactFormDataFromLS.hasOwnProperty(prop)) {
-      // console.log(prop);
-      // console.log(contactFormDataFromLS[prop]);
-
       formEl.elements[prop].value = contactFormDataFromLS[prop];
+      userData[prop] = contactFormDataFromLS[prop];
     }
   }
 };
